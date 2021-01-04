@@ -1,0 +1,5 @@
+# STEPS:
+
+1. Run program "install_requirements" it will download all the the required libraries
+2. Then start the Voice_Controlled_Shell by running main.py
+# Voice-Control-Shell
