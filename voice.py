@@ -4,7 +4,7 @@ import formatting
 import subprocess
 import os
 import formatting
-#this file contains input output functions
+import subprocess
 
 
 path = os.getcwd()
@@ -26,6 +26,8 @@ def speech_to_text(flag = 0):
         formatting.text_box('Listening...')
         audio = r.listen(source)
     try:
+        subprocess.call(['clear'])
+        formatting.text_box('Processing...')       
         mytext = r.recognize_google(audio)
         return mytext
     except sr.UnknownValueError:
