@@ -13,6 +13,7 @@ A Step towards voice activated machines.
 - [SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
 - [Beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
 - [Threading (System)](https://docs.python.org/3/library/threading.html)
+- [concurrent futures](https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures)
 
 ## Steps
 1) Run program to download all the the required libraries, give root password if needed
