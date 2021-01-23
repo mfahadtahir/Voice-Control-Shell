@@ -61,5 +61,4 @@ def show_list():
     table_content('14', 'Change Directory', 'Move to the specified directory')
     table_content('15', 'Delete file', 'Deletes the specified file')
     table_content('16', 'Delete Directory', 'Deletes the specified directory')
-    table_content('0', 'Show Commands', 'Show Command Table')
     return
