@@ -34,12 +34,13 @@ python3 main.py
 | 5  | `Shutdown` | The computer will be powered off |
 | 6  | `Reboot` | The computer will restart |
 | 7  | `Create File` | New file will be created in the current folder |
-| 8  | `File type` | The file information will be displayed |
-| 9  | `Create User` | The new user will be created. |
-| 10 | `Delete User` | Deletes the user. |
-| 11 | `Current Directory` | Current working Directory will be displayed |
-| 12 | `Create Directory` | New Directory will be created |
-| 13 | `Go Back` | Move to the previous directory |
-| 14 | `Change Directory` | Move to the specified directory |
-| 15 | `Delete file` | Deletes the specified file |
-| 16 | `Delete Directory` | Deletes the specified directory |
+| 8  | `Create Folder` | Create new Folder in current Directory |
+| 9  | `File type` | The file information will be displayed |
+| 10 | `Create User` | The new user will be created. |
+| 11 | `Delete User` | Deletes the user. |
+| 12 | `Current Directory` | Current working Directory will be displayed |
+| 13 | `Create Directory` | New Directory will be created |
+| 14 | `Go Back` | Move to the previous directory |
+| 15 | `Change Directory` | Move to the specified directory |
+| 16 | `Delete file` | Deletes the specified file |
+| 17 | `Delete Directory` | Deletes the specified directory |

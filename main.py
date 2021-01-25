@@ -53,6 +53,9 @@ def execute(mytext):
     elif(mytext.lower() == 'create file'):
         modules.create_file()
         return
+    elif(mytext.lower() == 'create folder'):
+        modules.create_folder()
+        return
     elif(mytext.lower() == 'file type'):
         modules.file_type()
         return
