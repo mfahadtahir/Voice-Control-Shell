@@ -52,7 +52,7 @@ def show_list():
     table_content('5', 'Shutdown', 'The computer will be powered off')
     table_content('6', 'Reboot', 'The computer will restart')
     table_content('7', 'Create File', 'New file will be created in the current folder')
-    table_content('8', 'Create File', 'New folder will be created in the current folder')
+    table_content('8', 'Create Folder', 'New folder will be created in the current folder')
     table_content('9', 'File type', 'The file information will be displayed')
     table_content('10', 'Create User', 'The new user will be created.')
     table_content('11', 'Delete User', 'Deletes the user.')
