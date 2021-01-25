@@ -49,34 +49,57 @@ def send_mail():
 
 
 def weather_update():
-    import requests
-    from bs4 import BeautifulSoup
-    page = requests.get("https://weather.com/en-PK/weather/today/l/1635c698505df4d47cc0a87bdf5b697154d56b59b2efd7f8b6d12d2457476fb0")
-    soup = BeautifulSoup(page.content, 'html.parser')
-    current_weather = soup.find(class_ = "today_nowcard-container")
-    loc = current_weather.find(class_ = "today_nowcard-location").get_text()
-    Last_updated = current_weather.find(class_ = "today_nowcard-timestamp")
-    time = Last_updated.find_all('span')[1].get_text()
-    temperature = current_weather.find(class_ = "today_nowcard-temp").get_text()
-    phrase = current_weather.find(class_ = "today_nowcard-feels").get_text()
-    weather_info = current_weather.find(class_ = "today_nowcard-sidecar")
-    Now = weather_info.find_all('span', class_ = "")
-    wind = Now[0].get_text()
-    humidity = Now[1].get_text()
-    dew_point = Now[3].get_text()
-    pressure = Now[4].get_text()
-    visibility = Now[5].get_text()
-    formatting.head('Current Weather')
-    formatting.table_content('1', 'Location', loc)
-    formatting.table_content('2', 'Last Updated', time)
-    formatting.table_content('3', 'Temperature', temperature)
-    formatting.table_content('4', 'Feels Like', phrase[11:])
-    formatting.table_content('5', 'Wind', wind)
-    formatting.table_content('6', 'Humidity', humidity)
-    formatting.table_content('7', 'Dew Point', dew_point)
-    formatting.table_content('8', 'Pressure', pressure)
-    formatting.table_content('9', 'Visibility', visibility)
-    return
+  import urllib.request, json
+  url = "http://api.weatherapi.com/v1/current.json?key=d8693f806abe4a0a9e7165056212501&q=Karachi"
+  json_url = urllib.request.urlopen(url)
+  data = json.loads(json_url.read())
+      
+  print(data)
+  formatting.head('Current Weather')
+  formatting.table_content('1', 'Location', data['location']['name'] )
+  formatting.table_content('2', 'Last Updated', data['current']['last_updated'])
+  formatting.table_content('3', 'Temperature', str(data['current']['temp_c']) + "°")
+  formatting.table_content('4', 'Wind', str(data['current']['wind_mph']) + " mph, " + data['current']['wind_dir'])
+  formatting.table_content('5', 'Humidity', str(data['current']['humidity']))
+  formatting.table_content('6', 'Cloud', str(data['current']['cloud']))
+  formatting.table_content('7', 'Pressure', str(data['current']['pressure_mb']) + " Millibar")
+  formatting.table_content('8', 'Visibility', str(data['current']['vis_km']) + " Kilo Meters")
+  formatting.table_content('9', 'Ultra Violet', str(data['current']['uv']))
+  # subprocess.call(["sudo","tiv", "https:" + data['current']['condition']['icon']])
+
+  return
+  
+
+
+# def weather_update():
+#     import requests
+#     from bs4 import BeautifulSoup
+#     page = requests.get("https://weather.com/en-PK/weather/today/l/1635c698505df4d47cc0a87bdf5b697154d56b59b2efd7f8b6d12d2457476fb0")
+#     soup = BeautifulSoup(page.content, 'html.parser')
+#     current_weather = soup.find(class_ = "today_nowcard-container")
+#     loc          = current_weather.find(class_ = "today_nowcard-location").get_text()
+#     Last_updated = current_weather.find(class_ = "today_nowcard-timestamp")
+#     time         = Last_updated.find_all('span')[1].get_text()
+#     temperature  = soup.find(class_ = "WeatherDetailsListItem--wxData--23DP5")[0].get_text()
+#     phrase       = current_weather.find(class_ = "today_nowcard-feels").get_text()
+#     weather_info = current_weather.find(class_ = "today_nowcard-sidecar")
+#     Now = weather_info.find_all('span', class_ = "")
+#     wind = Now[0].get_text()
+#     humidity = Now[1].get_text()
+#     dew_point = Now[3].get_text()
+#     pressure = Now[4].get_text()
+#     visibility = Now[5].get_text()
+#     formatting.head('Current Weather')
+#     formatting.table_content('1', 'Location', loc)
+#     formatting.table_content('2', 'Last Updated', time)
+#     formatting.table_content('3', 'Temperature', temperature)
+#     formatting.table_content('4', 'Feels Like', phrase[11:])
+#     formatting.table_content('5', 'Wind', wind)
+#     formatting.table_content('6', 'Humidity', humidity)
+#     formatting.table_content('7', 'Dew Point', dew_point)
+#     formatting.table_content('8', 'Pressure', pressure)
+#     formatting.table_content('9', 'Visibility', visibility)
+#     return
 
 def list_files():
     list = os.listdir('.')

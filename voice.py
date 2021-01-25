@@ -39,9 +39,10 @@ def speech_to_text(flag = 0):
                         
         with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
           future = executor.submit(r.recognize_google, audio)
+          # Loading 
           i = 0
           stages = ['Processing.', 'Processing..', 'Processing...']
-          while(future.running() ):
+          while(future.running()):
             subprocess.call(['clear'])
             formatting.text_box(stages[i])
             i += 1
